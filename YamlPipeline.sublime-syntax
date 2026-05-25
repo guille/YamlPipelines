@@ -20,6 +20,8 @@ contexts:
     - meta_prepend: true
     - include: string-interpolations
 
+###[ INTERPOLATIONS ]##########################################################
+
   string-interpolations:
     - match: \$\{\{
       scope: punctuation.section.interpolation.begin.pipeline
@@ -60,6 +62,8 @@ contexts:
     - match: ','
       scope: punctuation.separator.argument.pipeline
     - include: inside-expression
+
+###[ SHELLSCRIPT SCRIPT BLOCKS ]###############################################
 
   script-block-node:
     - meta_scope: meta.block.script.pipeline
@@ -137,6 +141,8 @@ contexts:
     - match: .+
       scope: invalid.illegal.expected-comment-or-newline.yaml
 
+###[ LITERALS ]################################################################
+
   possible-accessor:
     - match: \.
       scope: punctuation.accessor.dot.pipeline
@@ -176,6 +182,8 @@ contexts:
     - match: \'
       scope: punctuation.definition.string.end.pipeline
       pop: 1
+
+###[ SHELL TEMPLATES ]#########################################################
 
   embedded-bash:
     - meta_include_prototype: false
