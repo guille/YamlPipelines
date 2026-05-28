@@ -90,6 +90,13 @@ jobs:
 
     steps:
 
+      - name: Test leading source.shell
+        run: |
+          echo Test
+# <- source.shell.bash.embedded
+#^^^^^^^^^^^^^^^^^^^ source.shell.bash.embedded - source.shell source.shell
+#         ^^^^ support.function
+
       # https://github.com/actions/checkout
       - name: Checkout Packages
         uses: actions/checkout@v3
@@ -132,7 +139,8 @@ jobs:
         #                                                                                    ^ string.quoted.double.yaml punctuation.definition.string.end.yaml - meta.interpolation
         run: |
           if [[ "${{ matrix.sublime-build }}" == "latest" ]]; then
-          # <- source.yaml.pipeline.github-actions source.shell.bash
+          # <- source.yaml.pipeline.github-actions source.shell.bash.embedded - source.shell source.shell
+          #^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.yaml.pipeline.github-actions source.shell.bash.embedded - source.shell source.shell
           #  ^^ punctuation.section.compound.begin, support.function.test.begin
           #     ^ punctuation.definition.string.begin
           #      ^^^ punctuation.section.interpolation.begin
@@ -153,6 +161,8 @@ jobs:
           fi
           tar xf st_syntax_tests.tar.xz
           rm st_syntax_tests.tar.xz
+# <- source.shell.bash.embedded - source.shell source.shell
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.shell.bash.embedded - source.shell source.shell
 #         ^^ source.shell meta.function-call.identifier variable.function
       - name: Run syntax tests
 #     ^ punctuation.definition.block.sequence.item - source.shell

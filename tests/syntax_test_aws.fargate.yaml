@@ -32,9 +32,9 @@ Resources:
 #                ^ punctuation.separator.key-value.yaml
             - "bin/console"
 #           ^ meta.block.script.pipeline punctuation.definition.block.sequence.item.yaml
-#             ^ meta.block.script.pipeline punctuation.definition.string.begin.yaml - source.shell
-#              ^^^^^^^^^^^ source.shell.bash.embedded meta.function-call.identifier.shell variable.function.shell
-#                         ^ source.shell.bash.embedded meta.function-call.identifier.shell punctuation.definition.string.end.yaml
+#             ^ meta.block.script.pipeline meta.string.yaml string.quoted.double.yaml punctuation.definition.string.begin.yaml - source.shell
+#              ^^^^^^^^^^^ source.shell.bash.embedded meta.function-call.identifier.shell variable.function.shell - source.shell source.shell
+#                         ^ meta.block.script.pipeline meta.string.yaml string.quoted.double.yaml punctuation.definition.string.end.yaml - source.shell
             - "messenger:consume"
             - "--quiet"
             - "--memory-limit=120M"
@@ -53,13 +53,14 @@ Resources:
 #                         ^ punctuation.definition.string.end.yaml
               - "agent health || exit 1"
 #             ^ meta.block.script.pipeline punctuation.definition.block.sequence.item.yaml
-#               ^ meta.block.script.pipeline punctuation.definition.string.begin.yaml
-#                ^^^^^ source.shell.bash.embedded meta.function-call.identifier.shell variable.function.shell
-#                      ^^^^^^ source.shell.bash.embedded meta.function-call.arguments.shell
-#                             ^^ source.shell.bash.embedded keyword.operator.logical.shell
-#                                ^^^^ source.shell.bash.embedded keyword.control.flow.exit.shell
-#                                     ^ source.shell.bash.embedded meta.number.integer.decimal.shell constant.numeric.value.shell
-#                                      ^ source.shell.bash.embedded punctuation.definition.string.end.yaml
+#               ^ meta.block.script.pipeline meta.string.yaml string.quoted.double.yaml punctuation.definition.string.begin.yaml - source.shell
+#                ^^^^^^^^^^^^^^^^^^^^^^ source.shell.bash.embedded - source.shell source.shell
+#                ^^^^^ meta.function-call.identifier.shell variable.function.shell
+#                      ^^^^^^ meta.function-call.arguments.shell
+#                             ^^ keyword.operator.logical.shell
+#                                ^^^^ keyword.control.flow.exit.shell
+#                                     ^ meta.number.integer.decimal.shell constant.numeric.value.shell
+#                                      ^ meta.block.script.pipeline meta.string.yaml string.quoted.double.yaml punctuation.definition.string.end.yaml - source.shell
             Timeout: 5
 #           ^^^^^^^ meta.mapping.key.yaml meta.string.yaml string.unquoted.plain.out.yaml - source.shell
 #                  ^ meta.mapping.yaml punctuation.separator.key-value.mapping.yaml
