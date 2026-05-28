@@ -12,8 +12,8 @@ steps:
 #         ^ punctuation.separator.key-value
   - echo hello world
 # ^ meta.block.script punctuation.definition.block.sequence.item
-#   ^^^^^^^^^^^^^^^^ source.shell.bash
-#   ^^^^ support.function.echo
+#   ^^^^^^^^^^^^^^^^ source.shell.bash.embedded
+#   ^^^^ support.function
 
 # <- - source.shell
 trigger:

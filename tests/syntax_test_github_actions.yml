@@ -90,6 +90,13 @@ jobs:
 
     steps:
 
+      - name: Test leading source.shell
+        run: |
+          echo Test
+# <- source.shell.bash.embedded
+#^^^^^^^^^^^^^^^^^^^ source.shell.bash.embedded - source.shell source.shell
+#         ^^^^ support.function
+
       # https://github.com/actions/checkout
       - name: Checkout Packages
         uses: actions/checkout@v3
@@ -132,8 +139,9 @@ jobs:
         #                                                                                    ^ string.quoted.double.yaml punctuation.definition.string.end.yaml - meta.interpolation
         run: |
           if [[ "${{ matrix.sublime-build }}" == "latest" ]]; then
-          # <- source.yaml.pipeline.github-actions source.shell.bash
-          #  ^^ support.function.test.begin
+          # <- source.yaml.pipeline.github-actions source.shell.bash.embedded - source.shell source.shell
+          #^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.yaml.pipeline.github-actions source.shell.bash.embedded - source.shell source.shell
+          #  ^^ punctuation.section.compound.begin, support.function.test.begin
           #     ^ punctuation.definition.string.begin
           #      ^^^ punctuation.section.interpolation.begin
           #          ^^^^^^ constant.language.context
@@ -145,7 +153,7 @@ jobs:
           else
             wget -O st_syntax_tests.tar.xz https://download.sublimetext.com/st_syntax_tests_build_${{ matrix.sublime-build }}_x64.tar.xz
           #                                                                                       ^^^ punctuation.section.interpolation.begin.pipeline
-          #                                                                                          ^^^^^^^^^^^^^^^^^^^^^^ source.shell.bash.github-actions meta.function-call.arguments.shell meta.interpolation.pipeline
+          #                                                                                          ^^^^^^^^^^^^^^^^^^^^^^ source.shell.bash meta.function-call.arguments.shell meta.interpolation.pipeline
           #                                                                                           ^^^^^^ constant.language.context.github-actions
           #                                                                                                 ^ punctuation.accessor.dot.pipeline
           #                                                                                                  ^^^^^^^^^^^^^ variable.other.member.pipeline
@@ -153,13 +161,15 @@ jobs:
           fi
           tar xf st_syntax_tests.tar.xz
           rm st_syntax_tests.tar.xz
+# <- source.shell.bash.embedded - source.shell source.shell
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.shell.bash.embedded - source.shell source.shell
 #         ^^ source.shell meta.function-call.identifier variable.function
       - name: Run syntax tests
 #     ^ punctuation.definition.block.sequence.item - source.shell
         run: |
           cd st_syntax_tests && ./syntax_tests
 # <- source.yaml.pipeline.github-actions source.shell.bash.embedded
-#         ^^ source.shell.bash meta.function-call.identifier support.function.cd
+#         ^^ source.shell.bash meta.function-call.identifier support.function
         env:
 #       ^^^ meta.mapping.key meta.string string.unquoted.plain.out
 # TODO: scope env var names as variables
@@ -198,7 +208,7 @@ jobs:
             echo "validating $f"
             az bicep build -f $f --stdout > /dev/null
             done
-#           ^^^^ source.shell.bash.github-actions keyword.control.loop.end.shell
+#           ^^^^ source.shell.bash keyword.control.loop.end.shell
 
     - name: Heredoc inside bash script inside yaml file
       shell: bash
