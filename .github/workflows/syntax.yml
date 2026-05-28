@@ -22,18 +22,18 @@ jobs:
     strategy:
       matrix:
         include:
+          - build: 4200
+            packages: binary
           - build: latest
             packages: master
-          - build: latest
-            packages: binary
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v6
       - name: Checkout PowerShell package (dependency)
-        uses: actions/checkout@v3
+        uses: actions/checkout@v6
         with:
           repository: SublimeText/PowerShell
-          ref: master #version/st/4.0.0-alpha.01
+          ref: master
           path: third-party/PowerShell
       - uses: SublimeText/syntax-test-action@v2
         with:
