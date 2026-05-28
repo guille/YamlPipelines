@@ -8,27 +8,34 @@ hidden: true
 extends: Packages/ShellScript/Bash.sublime-syntax
 
 contexts:
-  expansions-parameter:
-    - meta_prepend: true
-    - include: scope:source.yaml.pipeline.github-actions#interpolations
 
   string-prototype:
     - meta_prepend: true
     - include: scope:source.yaml.pipeline.github-actions#string-interpolations
 
+###[ BEFORE PACKAGES PR4024 ]##################################################
+
+  expansions-parameter:
+    - meta_prepend: true
+    - include: scope:source.yaml.pipeline.github-actions#interpolations
+
   heredocs-body:
-    # before Packages PR #4024
     - meta_prepend: true
     - match: ^\s*\3$ # the third capture from redirections-here-document
       scope: meta.tag.heredoc.shell entity.name.tag.heredoc.shell
       pop: 1
 
   heredocs-body-no-expansion:
-    # before Packages PR #4024
     - meta_prepend: true
     - match: ^\s*\5$ # the fourth capture from redirections-here-document
       scope: meta.tag.heredoc.shell entity.name.tag.heredoc.shell
       pop: 1
+
+###[ WITH PACKAGES PR4024 ]####################################################
+
+  parameter-expansions:
+    - meta_prepend: true
+    - include: scope:source.yaml.pipeline.github-actions#interpolations
 
 variables:
   # requires Packages PR #4024
