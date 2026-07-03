@@ -4,7 +4,7 @@
 scope: source.yaml.pipeline.azure-devops
 version: 2
 
-extends: Packages/YamlPipelines/YamlPipeline.sublime-syntax
+extends: Packages/YamlPipelines-guille-guille/YamlPipeline.sublime-syntax
 
 file_extensions:
   - azure-pipelines.yml
