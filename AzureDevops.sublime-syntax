@@ -4,7 +4,7 @@
 scope: source.yaml.pipeline.azure-devops
 version: 2
 
-extends: Packages/YamlPipelines/YamlPipeline.sublime-syntax
+extends: Packages/YamlPipelines-guille/YamlPipeline.sublime-syntax
 
 file_extensions:
   - azure-pipelines.yml
@@ -46,13 +46,13 @@ contexts:
       push: inside-ado-runtime-expression-string-interpolations
 
   inside-ado-variable-reference-string-interpolation:
-    - clear_scopes: 1  # clear string scope
+    - clear_scopes: 1 # clear string scope
     - meta_scope: meta.interpolation.pipeline
     - meta_content_scope: variable.other.constant.pipeline
     - include: inside-ado-variable-reference
 
   inside-ado-runtime-expression-string-interpolations:
-    - clear_scopes: 1  # clear string scope
+    - clear_scopes: 1 # clear string scope
     - meta_scope: meta.interpolation.pipeline meta.block.pipeline
     - include: inside-ado-runtime-expression
 

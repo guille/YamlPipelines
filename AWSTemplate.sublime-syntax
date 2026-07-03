@@ -4,21 +4,20 @@ name: AWS YAML Template
 scope: source.yaml.pipeline.aws
 version: 2
 
-extends: Packages/YamlPipelines/YamlPipeline.sublime-syntax
+extends: Packages/YamlPipelines-guille/YamlPipeline.sublime-syntax
 
 file_extensions:
   - cron.yaml
   - fargate.yaml
   - predeploy.yaml
 
-first_line_match: '^AWSTemplateFormatVersion:'
+first_line_match: "^AWSTemplateFormatVersion:"
 
 variables:
   variable_interpolation: |-
     (?x)(?:
       (\$\{)((?:AWS::)?\w+)(?:(\.)(\w+))?(\})
     )
-
 
 contexts:
   flow-scalar-plain-out-body:
@@ -34,7 +33,7 @@ contexts:
     - include: variable-interpolation
 
   variable-interpolation:
-    - match: '{{variable_interpolation}}'
+    - match: "{{variable_interpolation}}"
       captures:
         1: punctuation.section.interpolation.begin.aws
         2: variable.other.constant.aws
@@ -99,7 +98,7 @@ contexts:
   script-block-node:
     - meta_prepend: true
     - include: flow-alias
-    - match: '{{_flow_scalar_end_plain_out}}'
+    - match: "{{_flow_scalar_end_plain_out}}"
       pop: 1
 
   embedded-bash:
