@@ -3,7 +3,7 @@
 scope: source.yaml.pipeline.bitbucket
 version: 2
 
-extends: Packages/YamlPipelines/YamlPipeline.sublime-syntax
+extends: Packages/YamlPipelines-guille/YamlPipeline.sublime-syntax
 
 file_extensions:
   - bitbucket-pipelines.yml
@@ -25,7 +25,7 @@ contexts:
   meta-name:
     - meta_content_scope: entity.name.label.bitbucket
     - include: flow-scalar-in-12
-    - match: ''
+    - match: ""
       pop: 1
 
   script-block-sequence:
