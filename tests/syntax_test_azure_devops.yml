@@ -1,4 +1,4 @@
-# SYNTAX TEST "Packages/YamlPipelines/AzureDevops.sublime-syntax"
+# SYNTAX TEST "Packages/YamlPipelines-guille/AzureDevops.sublime-syntax"
 
 # Python to Linux Web App on Azure
 # Build your Python project and deploy it to Azure as a Linux Web App.

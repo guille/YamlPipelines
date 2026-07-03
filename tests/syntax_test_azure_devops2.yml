@@ -1,4 +1,4 @@
-# SYNTAX TEST "Packages/YamlPipelines/AzureDevops.sublime-syntax"
+# SYNTAX TEST "Packages/YamlPipelines-guille/AzureDevops.sublime-syntax"
 
 # Docker image and Azure Container Registry
 # Build a Docker image and push it to an Azure Container Registry.

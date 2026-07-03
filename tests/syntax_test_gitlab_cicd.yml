@@ -1,4 +1,4 @@
-# SYNTAX TEST "Packages/YamlPipelines/Gitlab CICD.sublime-syntax"
+# SYNTAX TEST "Packages/YamlPipelines-guille/Gitlab CICD.sublime-syntax"
 variables:
 # ^^^^^^^ meta.mapping.key meta.string string.unquoted.plain.out - entity
 #        ^ meta.mapping punctuation.separator.key-value.mapping

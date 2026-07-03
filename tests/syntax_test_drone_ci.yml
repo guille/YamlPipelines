@@ -1,4 +1,4 @@
-# SYNTAX TEST "Packages/YamlPipelines/Drone CI.sublime-syntax"
+# SYNTAX TEST "Packages/YamlPipelines-guille/Drone CI.sublime-syntax"
 kind: pipeline
 type: docker
 name: en

@@ -1,4 +1,4 @@
-# SYNTAX TEST "Packages/YamlPipelines/Github Actions.sublime-syntax"
+# SYNTAX TEST "Packages/YamlPipelines-guille/Github Actions.sublime-syntax"
 name: ci
 # <- source.yaml.pipeline.github-actions
 
