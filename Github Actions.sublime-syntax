@@ -165,7 +165,7 @@ contexts:
       pop: true
 
   job-definition:
-    - match: ^(?!\1|\s*$)
+    - match: ^(?!\1[ \t]+|\s*$)
       pop: true
     - match: ^\s*(id)\s*(:)\s*([\w\-]+)
       captures:

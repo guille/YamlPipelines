@@ -280,6 +280,8 @@ jobs:
 #^^^^^^^^^^^^ source.shell.bash.embedded
 
   job_foobar:
+# ^^^^^^^^^^ entity.name.function.github-actions
+#           ^ punctuation.separator.key-value.yaml
     runs-on: ubuntu-22.04
     needs: run_syntax_tests
     needs: [ run_syntax_tests ]
